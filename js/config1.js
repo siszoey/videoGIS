@@ -20,9 +20,9 @@
     w.urlCarPhoto = localhost + '/iserver/services/map-car/rest/maps/car02';
 
 //  //地图图层
-	w.urlMap = localhost + '/iserver/services/map-ugcv5-XCZW2017DLG/rest/maps/XCZW2017DLG';
+    w.urlMap = localhost + '/iserver/services/map-ugcv5-XCZW2017DLG/rest/maps/XCZW2017DLG';
 //  //影像地图
-	w.urlPhotoMap = localhost + '/iserver/services/map-ugcv5-XCZW2017DOM/rest/maps/XCZW2017DOM';
+    w.urlPhotoMap = localhost + '/iserver/services/map-ugcv5-XCZW2017DOM/rest/maps/XCZW2017DOM';
 //  //摄像头图层
 //  w.urlCamera = localhost + '/iserver/services/map-ugcv5-camera1921681200xcbaymin1/rest/maps/camera@192.168.1.200_xc_baymin1';
 //  //影像地图摄像头图层

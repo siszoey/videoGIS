@@ -6,9 +6,9 @@
     //地图图层
     w.urlMap = localhost + "/iserver/services/map-mongodb/rest/maps/XCZW2017DLG1脱密";
     //影像地图
-    w.urlPhotoMap = localhost +"/iserver/services/map-mongodb/rest/maps/XCZW2017DOM";
+    w.urlPhotoMap = localhost + "/iserver/services/map-mongodb/rest/maps/XCZW2017DOM";
     //摄像头图层
-    w.urlCamera =localhost +"/iserver/services/map-xc_baymin/rest/maps/camera@192.168.1.200_xc_baymin";
+    w.urlCamera = localhost + "/iserver/services/map-xc_baymin/rest/maps/camera@192.168.1.200_xc_baymin";
     //影像地图摄像头图层
     w.urlCameraPhoto = localhost + '/iserver/services/map-xc_baymin/rest/maps/camera@192.168.1.200_xc_baymin2';
     //车辆图层

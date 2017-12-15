@@ -120,16 +120,17 @@
 //}
 /*----------------------------获取摄像头数据信息-----------------------------*/
 window.cameras = [];
+
 function getCameraInfo(page) {
     /**
      * 添加缓存策略,一段时间内不从服务端获取数据
      * 缓存时间在config.js中配置
      * 缓存时间默认十分钟
      **/
-     console.log(page);
-     if(localStorage.getItem("cameraExpireTime") &&
-        localStorage.getItem("cameraExpireTime")>=new Date().getTime() &&
-        localStorage.getItem("cameras")){
+    console.log(page);
+    if (localStorage.getItem("cameraExpireTime") &&
+        localStorage.getItem("cameraExpireTime") >= new Date().getTime() &&
+        localStorage.getItem("cameras")) {
         window.cameras = JSON.parse(localStorage.getItem("cameras"));
         addMulVector(JSON.parse(localStorage.getItem("cameras")));
         openCameraPanelAll(JSON.parse(localStorage.getItem("cameras")));
@@ -152,15 +153,15 @@ function getCameraInfo(page) {
         url: window.urlName + "/camera/list",
         type: 'POST',
         data: getData,
-        success:function (data) {
+        success: function (data) {
             if (data.code == 200) {
                 var data = data.data.rows;
                 if (data.length === 0) {
                     addMulVector(window.cameras);
                     openCameraPanelAll(window.cameras);
                     //配置缓存
-                    localStorage.setItem("camerasAllList",JSON.stringify(window.cameras));
-                    localStorage.setItem("cameraExpireTime",new Date().getTime()+window.cameraCacheTime);
+                    localStorage.setItem("camerasAllList", JSON.stringify(window.cameras));
+                    localStorage.setItem("cameraExpireTime", new Date().getTime() + window.cameraCacheTime);
                 } else {
                     window.cameras = window.cameras.concat(data);
                     getCameraInfo(parseInt(page) + 1);
@@ -176,15 +177,16 @@ function getCameraInfo(page) {
         }
     });
 }
+
 /*--------------------------根据摄像头id返回摄像头信息------------------------*/
 function selectCamInfoByID(id, callback) {
-    var cam_sta = ['未知','球型','半球型','固定枪机','遥控枪机','卡扣枪机'];
-    for(var i=0 ; i<window.cameras.length; i++){
-        if(window.cameras[i].cam_id == id){
-        	if(!isNaN(window.cameras[i].cam_sta )){
-        		window.cameras[i].cam_sta = cam_sta[window.cameras[i].cam_sta];
-        	}
-            cam_info=window.cameras[i];
+    var cam_sta = ['未知', '球型', '半球型', '固定枪机', '遥控枪机', '卡扣枪机'];
+    for (var i = 0; i < window.cameras.length; i++) {
+        if (window.cameras[i].cam_id == id) {
+            if (!isNaN(window.cameras[i].cam_sta)) {
+                window.cameras[i].cam_sta = cam_sta[window.cameras[i].cam_sta];
+            }
+            cam_info = window.cameras[i];
             callback(window.cameras[i]);
             console.log("use window.cameras");
             return;
@@ -214,6 +216,7 @@ function selectCamInfoByID(id, callback) {
         }
     });
 }
+
 /*------------------------------获取摄像头属性-------------------------------*/
 function getCameraAttr() {
     //    初始化属性
@@ -235,7 +238,9 @@ function getCameraAttr() {
 
     });
 }
+
 /* -------------------------------------添加摄像头矢量图层-------------------------------------------*/
+
 /*----------------------------添加多个矢量点-----------------------------*/
 function addMulVector(data) {
     //点特征数组
@@ -261,13 +266,15 @@ function addMulVector(data) {
     //矢量图层添加一组点特征数组
     vectors.addFeatures(point_features);
 }
+
 /*------------------------------------------左键菜单弹框--------------------------------------------*/
+
 /*----------------------点击矢量要素覆盖物，调用此函数---------------------*/
 function onFeatureSelected(feature) {
     if (flag == true) {
         return false;
     }
-     flag = true;
+    flag = true;
     var cam_id = feature.style.graphicZIndex;
     var cam_name = feature.style.dataName;
     var cam_addr = feature.style.dataAddr;
@@ -331,6 +338,7 @@ function onFeatureSelected(feature) {
     });
 
 }
+
 /*--------------------------------------------详细信息可拖动---------------------------------------*/
 $(function () {
     //创建小方块的jquery对象
@@ -359,19 +367,19 @@ $(function () {
             var new_position_left = old_position_left + chang_x;
             var new_position_top = old_position_top + change_y;
             //加上边界限制
-            if(new_position_top<0){//当上边的偏移量小于0的时候，就是上边的临界点，就让新的位置为0
-                new_position_top=0;
+            if (new_position_top < 0) {//当上边的偏移量小于0的时候，就是上边的临界点，就让新的位置为0
+                new_position_top = 0;
             }
             //如果向下的偏移量大于文档对象的高度减去自身的高度，就让它等于这个高度
-            if(new_position_top>$(document).height()-$cameradetailsWin.height()){
-                new_position_top=$(document).height()-$cameradetailsWin.height();
+            if (new_position_top > $(document).height() - $cameradetailsWin.height()) {
+                new_position_top = $(document).height() - $cameradetailsWin.height();
             }
             //右限制
-            if(new_position_left>$(document).width()-$cameradetailsWin.width()){
-                new_position_left=$(document).width()-$cameradetailsWin.width();
+            if (new_position_left > $(document).width() - $cameradetailsWin.width()) {
+                new_position_left = $(document).width() - $cameradetailsWin.width();
             }
-            if(new_position_left<0){//左边的偏移量小于0的时候设置 左边的位置为0
-                new_position_left=0;
+            if (new_position_left < 0) {//左边的偏移量小于0的时候设置 左边的位置为0
+                new_position_left = 0;
             }
 
             $cameradetailsWin.css({
@@ -379,7 +387,7 @@ $(function () {
                 top: new_position_top + 'px'
             })
         });
-        $cameradetailsWin.mouseup(function(){
+        $cameradetailsWin.mouseup(function () {
             $(document).off("mousemove");
         })
     });
@@ -387,6 +395,7 @@ $(function () {
 /*--------------------------摄像头点选高亮事件--------------------------*/
 var pointPops = [];
 var popNum = [];
+
 function pointClick(feature) {
     var pointSha;
     var pointShaId;
@@ -425,6 +434,7 @@ function pointClick(feature) {
         }
     }
 }
+
 /*--------------------------定义关闭Menu点击事件--------------------------*/
 function closeMenuInfoWin() {
     if (flag) {
@@ -435,10 +445,12 @@ function closeMenuInfoWin() {
         featureShadow.destroy();
     }
 }
+
 /*---------------------------------------鼠标悬停弹出Tabs-------------------------------------------*/
+
 /*----------------鼠标悬停弹出Tabs popup，调用此函数。------------------*/
 function onFeatureHovered(feature) {
-	console.log('mmmmmm')
+    console.log('mmmmmm')
     //根据摄像头ID后台获取摄像头信息
     selectCamInfoByID(feature.style.graphicZIndex, function (cam_info) {
         var contentHtml = "";
@@ -483,6 +495,7 @@ function onFeatureHovered(feature) {
         }
     });
 }
+
 /*----------------点击摄像头列表Tabs popup，调用此函数。------------------*/
 function onFeatureHovered1(feature) {
     //根据摄像头ID后台获取摄像头信息
@@ -525,6 +538,7 @@ function onFeatureHovered1(feature) {
         addPopUpCircle('featureShadow1', feature.geometry.x, feature.geometry.y, map, 'rgba(20,88,167,.3)', '50', '50', 25, 25);
     }
 }
+
 /*---------------------------------定义悬浮框关闭事件--------------------------------*/
 function closeTabsInfoWin() {
     console.log(111111111);
@@ -537,6 +551,7 @@ function closeTabsInfoWin() {
         featureShadow.destroy();
     }
 }
+
 /*-------------------------------------打开摄像头列表-------------------------------------*/
 function openCameraPanel(cameras) {
     saveData('camerasList', cameras);
@@ -647,9 +662,10 @@ function openCameraPanel(cameras) {
         highlightSelected: true,
     });
 }
+
 /*-------------------------------------通过属性搜索选中摄像头列表-------------------------------------*/
 function openCameraPanelSelect(cameras) {
-	map.removeAllPopup();
+    map.removeAllPopup();
     saveData('camerasList', cameras);
     var config = Array();
     var total = {
@@ -691,6 +707,7 @@ function openCameraPanelSelect(cameras) {
         highlightSelected: true
     });
 }
+
 /*-------------------------------------初始化摄像头列表-----------------------------------*/
 function openCameraPanelAll(cameras) {
     saveData('camerasAllList', cameras);
@@ -794,9 +811,10 @@ function openCameraPanelAll(cameras) {
         highlightSelected: true
     });
 }
+
 /*-------------------------------------关闭摄像头列表-----------------------------------*/
 function closeCameraPanel() {
-	return;
+    return;
     var config = Array();
     var total = {
         text: '全部',
@@ -879,6 +897,7 @@ function closeCameraPanel() {
         highlightSelected: true,
     });
 }
+
 /*-------------------------------------添加圆的弹窗---------------------------------------*/
 function addPopUpCircle(name, x, y, map, backgroundColor, width, height, left, top) {
     var popup2 = new SuperMap.Popup(
@@ -902,6 +921,7 @@ function addPopUpCircle(name, x, y, map, backgroundColor, width, height, left, t
         'z-index': '340'
     });
 }
+
 /*-------------------------------------添加圆的弹窗---------------------------------------*/
 function addPopUpCircleN(name, x, y, map, backgroundColor, width, height, left, top) {
     var popup2 = new SuperMap.Popup(
@@ -925,6 +945,7 @@ function addPopUpCircleN(name, x, y, map, backgroundColor, width, height, left, 
         'z-index': '340'
     });
 }
+
 /*-------------------------------------摄像头高亮----------------------------------------*/
 function cameraHighlight(name, x, y, map) {
     if (tabsInfoWin && tabsInfoWin.hide) {
@@ -969,6 +990,7 @@ function cameraHighlight(name, x, y, map) {
     });
 
 }
+
 /*------------------------------------摄像头选择事件-------------------------------------*/
 function cameraSelected(camera) {
     camera = JSON.parse(camera);
@@ -997,7 +1019,9 @@ function cameraSelected(camera) {
     onFeatureHovered1(feature);
     map.setCenter(new SuperMap.LonLat(camera.cam_loc_lan, camera.cam_loc_lon), map.getZoom());
 }
+
 /*--------------------------------------定义摄像头设置属性---------------------------------*/
+
 //passionZhang  icon下来图标触发此事件
 function openCamSettings() {
     console.log(camera_setting);
@@ -1011,21 +1035,23 @@ function openCamSettings() {
     }
     $('#menuCamSearch').html(contentHtml);
 }
+
 /*------------------------------------------------搜索摄像头属性---------------------------------------*/
 function searchSelect(name, val) {
     $("#searchCamSelect").attr('placeholder', name)
     $("#searchCamSelect").attr('name', val)
 }
+
 function camSearchSettings() {
     deleteData('camerasList');
     if ($("#searchCamSelect").val() == "") {
         win.alert('提示', '搜索内容不能为空');
         return
     }
-    if(!$("#searchCamSelect").attr('name')){
-    	win.alert('提示', '请先选择摄像头属性');
-    	$("#searchCamSelect").val('');
-    	return
+    if (!$("#searchCamSelect").attr('name')) {
+        win.alert('提示', '请先选择摄像头属性');
+        $("#searchCamSelect").val('');
+        return
     }
     var attrName = $("#searchCamSelect").attr('name');
     console.log(attrName)
@@ -1043,7 +1069,7 @@ function camSearchSettings() {
         }
     };
     $.ajax(settings).done(function (response) {
-    	console.log(response)
+        console.log(response)
         if (response.code == 200) {
             console.log(response.data.rows);
             $("#searchCamSelect").val('');
@@ -1057,17 +1083,21 @@ function camSearchSettings() {
         }
     });
 }
+
 /*---------------------------------------------导出摄像头--------------------------------------------*/
+
 //打开摄像头导出列表
 function excel() {
     $('.cam_td').remove();
     selectExcel();
     $('#excelDiv').show();
 }
+
 //点击关闭摄像头导出列表
 function excelOff() {
     $('#excelDiv').hide();
 }
+
 //点击导出列表显示内容
 function excelOut() {
     $('#excelDiv').hide();
@@ -1081,6 +1111,7 @@ function excelOut() {
     });
     $('.cam_td').remove();
 }
+
 //查询出的结果，重构表格
 function selectExcel() {
     var Data = {};

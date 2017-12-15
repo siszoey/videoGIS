@@ -27,35 +27,35 @@ SuperMap.Lang.en = {
 
     // console message
     'minZoomLevelError':
-        "The minZoomLevel property is only intended for use " +
-        "with the FixedZoomLevels-descendent layers. That this " +
-        "wfs layer checks for minZoomLevel is a relic of the" +
-        "past. We cannot, however, remove it without possibly " +
-        " breaking OL based applications that may depend on it." +
-        "Therefore we are deprecating it -- the minZoomLevel." +
-        "Please instead use min/max resolution setting.",
+    "The minZoomLevel property is only intended for use " +
+    "with the FixedZoomLevels-descendent layers. That this " +
+    "wfs layer checks for minZoomLevel is a relic of the" +
+    "past. We cannot, however, remove it without possibly " +
+    " breaking OL based applications that may depend on it." +
+    "Therefore we are deprecating it -- the minZoomLevel." +
+    "Please instead use min/max resolution setting.",
 
     'commitSuccess': "WFS Transaction: SUCCESS ${response}",
 
     'commitFailed': "WFS Transaction: FAILED ${response}",
 
     'googleWarning':
-        "The Google Layer was unable to load correctly.<br><br>" +
-        "To get rid of this message, select a new BaseLayer " +
-        "in the layer switcher in the upper-right corner.<br><br>" +
-        "Most likely, this is because the Google Maps library " +
-        "script was either not included, or does not contain the " +
-        "correct API key for your site.<br><br>",
+    "The Google Layer was unable to load correctly.<br><br>" +
+    "To get rid of this message, select a new BaseLayer " +
+    "in the layer switcher in the upper-right corner.<br><br>" +
+    "Most likely, this is because the Google Maps library " +
+    "script was either not included, or does not contain the " +
+    "correct API key for your site.<br><br>",
 
     'getLayerWarning':
-        "The ${layerType} Layer was unable to load correctly.<br><br>" +
-        "To get rid of this message, select a new BaseLayer " +
-        "in the layer switcher in the upper-right corner.<br><br>" +
-        "Most likely, this is because the ${layerLib} library " +
-        "script was not correctly included.<br><br>",
+    "The ${layerType} Layer was unable to load correctly.<br><br>" +
+    "To get rid of this message, select a new BaseLayer " +
+    "in the layer switcher in the upper-right corner.<br><br>" +
+    "Most likely, this is because the ${layerLib} library " +
+    "script was not correctly included.<br><br>",
 
     'Scale = 1 : ${scaleDenom}': "Scale = 1 : ${scaleDenom}",
-    
+
     //labels for the graticule control
     'W': 'W',
     'E': 'E',
@@ -65,16 +65,16 @@ SuperMap.Lang.en = {
 
     // console message
     'reprojectDeprecated':
-        "You are using the 'reproject' option " +
-        "on the ${layerName} layer. This option is deprecated: " +
-        "its use was designed to support displaying data over commercial " + 
-        "basemaps, but that functionality should now be achieved by using " +
-        "Spherical Mercator support.",
+    "You are using the 'reproject' option " +
+    "on the ${layerName} layer. This option is deprecated: " +
+    "its use was designed to support displaying data over commercial " +
+    "basemaps, but that functionality should now be achieved by using " +
+    "Spherical Mercator support.",
 
     // console message
     'methodDeprecated':
-        "This method has been deprecated and will be removed. " +
-        "Please use ${newMethod} instead.",
+    "This method has been deprecated and will be removed. " +
+    "Please use ${newMethod} instead.",
 
     'proxyNeeded': "You probably need to set SuperMap.ProxyHost to access ${url}.",
 
@@ -88,26 +88,26 @@ SuperMap.Lang.en = {
     'cloudLayerAttr': '&copy;2016 AMap GS(2015)2681',
 
     //VectorMapEditor
-    'editorName':"VectorMapEditor",
-    'layerList':"LayerList",
-    'point':"PointLayer",
-    'line':"LineLayer",
-    'region':"PolygonLayer",
-    'text':"TextLayer",
-    'advanceSetting':"advanceSetting",
-    'expandingPointContent':"Expanding",
-    'volleyPointContent':"Volley",
-    'rendezvousPointContent':"Rendezvous",
-    'supplyPointContent':"Supply",
-	//symbolAlgo
-    'symbolAlgo_17703':"Add",
-	'symbolAlgo_17704':"Emergency",
-	'symbolAlgo_21600':"Punching",
-    'symbolAlgo_28000_1':"Danger",
-    'symbolAlgo_28000_2':"Middle",
-    'symbolAlgo_28000_3':"light",
-    'symbolAlgo_31304':"Electric resistance",
-	'symbolAlgo_3010301':"Adjustment",
-	'symbolAlgo_3010303':"StartOff",
-	'symbolAlgo_3010304':"Coordinate"
+    'editorName': "VectorMapEditor",
+    'layerList': "LayerList",
+    'point': "PointLayer",
+    'line': "LineLayer",
+    'region': "PolygonLayer",
+    'text': "TextLayer",
+    'advanceSetting': "advanceSetting",
+    'expandingPointContent': "Expanding",
+    'volleyPointContent': "Volley",
+    'rendezvousPointContent': "Rendezvous",
+    'supplyPointContent': "Supply",
+    //symbolAlgo
+    'symbolAlgo_17703': "Add",
+    'symbolAlgo_17704': "Emergency",
+    'symbolAlgo_21600': "Punching",
+    'symbolAlgo_28000_1': "Danger",
+    'symbolAlgo_28000_2': "Middle",
+    'symbolAlgo_28000_3': "light",
+    'symbolAlgo_31304': "Electric resistance",
+    'symbolAlgo_3010301': "Adjustment",
+    'symbolAlgo_3010303': "StartOff",
+    'symbolAlgo_3010304': "Coordinate"
 };

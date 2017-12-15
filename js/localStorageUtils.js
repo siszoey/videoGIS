@@ -6,12 +6,12 @@
  */
 (function (w) {
     w.readData = function (key) {
-        return  JSON.parse(localStorage.getItem(key) || '[]')
+        return JSON.parse(localStorage.getItem(key) || '[]')
     };
     w.saveData = function (key, data) {
         localStorage.setItem(key, JSON.stringify(data))
     };
     w.deleteData = function (key) {
-        return  JSON.parse(localStorage.removeItem(key) || '[]')
+        return JSON.parse(localStorage.removeItem(key) || '[]')
     }
 })(window);

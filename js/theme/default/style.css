@@ -1,7 +1,7 @@
 ﻿@font-face {
     font-family: 'supermap-icon';
-    src:    url('./fonts/supermap-icon.eot?ttrekr');
-    src:    url('./fonts/supermap-icon.eot?ttrekr#iefix') format('embedded-opentype'),
+    src: url('./fonts/supermap-icon.eot?ttrekr');
+    src: url('./fonts/supermap-icon.eot?ttrekr#iefix') format('embedded-opentype'),
     url('./fonts/supermap-icon.ttf?ttrekr') format('truetype'),
     url('./fonts/supermap-icon.woff?ttrekr') format('woff'),
     url('./fonts/supermap-icon.svg?ttrekr#supermap-icon') format('svg');
@@ -27,114 +27,146 @@
 .supermapol-icons-save:before {
     content: "\e900";
 }
+
 .supermapol-icons-baselayer:before {
     content: "\e901";
 }
+
 .supermapol-icons-marker:before {
     content: "\e902";
 }
+
 .supermapol-icons-uncheck:before {
     content: "\e903";
 }
+
 .supermapol-icons-checked:before {
     content: "\e904";
 }
+
 .supermapol-icons-zoom-in:before {
     content: "\e906";
 }
+
 .supermapol-icons-share:before {
     content: "\e907";
 }
+
 .supermapol-icons-clear:before {
     content: "\e908";
     color: whitesmoke;
 }
+
 .supermapol-icons-setting:before {
     content: "\e909";
 }
+
 .supermapol-icons-polygon:before {
     content: "\e90a";
 }
+
 .supermapol-icons-default-layer:before {
     content: "\e90b";
 }
+
 .supermapol-icons-uniE90C:before {
     content: "\e90c";
 }
+
 .supermapol-icons-delete:before {
     content: "\e90d";
 }
+
 .supermapol-icons-up:before {
     content: "\e90e";
 }
+
 .supermapol-icons-warning:before {
     content: "\e90f";
 }
+
 .supermapol-icons-back:before {
     content: "\e910";
 }
+
 .supermapol-icons-retract:before {
     content: "\e911";
 }
+
 .supermapol-icons-search:before {
     content: "\e912";
 }
+
 .supermapol-icons-zoom-to:before {
     content: "\e913";
 }
+
 .supermapol-icons-zoom-out:before {
     content: "\e914";
 }
+
 .supermapol-icons-layers:before {
     content: "\e915";
 }
+
 .supermapol-icons-add:before {
     content: "\e916";
 }
+
 .supermapol-icons-addlayer:before {
     content: "\e917";
 }
+
 .supermapol-icons-triangle:before {
     content: "\e918";
 }
+
 .supermapol-icons-brush:before {
     content: "\e919";
 }
+
 .supermapol-icons-more:before {
     content: "\e91a";
 }
+
 .supermapol-icons-down:before {
     content: "\e91b";
 }
+
 .supermapol-icons-line:before {
     content: "\e91c";
 }
+
 .supermapol-icons-pen:before {
     content: "\e91d";
 }
+
 .supermapol-icons-user:before {
     content: "\e91e";
 }
+
 .supermapol-icons-down-end:before {
     content: "\e91f";
 }
+
 .supermapol-icons-up-end:before {
     content: "\e920";
 }
+
 .supermapol-icons-text:before {
     content: "\e921";
 }
+
 .supermapol-icons-customize:before {
     content: "\e922";
 }
 
-
 div.smMap {
     z-index: 0;
-    padding: 0px!important;
-    margin: 0px!important;
-    cursor: url("../images/cursors/Pan.cur"),default;
-    border:1px solid #3473b7;
+    padding: 0px !important;
+    margin: 0px !important;
+    cursor: url("../images/cursors/Pan.cur"), default;
+    border: 1px solid #3473b7;
 }
 
 div.smMapViewport {
@@ -149,10 +181,12 @@ div.smLayerDiv {
     left: 2px;
     bottom: 2px;
 }
+
 .smLayerGooglePoweredBy {
     left: 2px;
     bottom: 15px;
 }
+
 .smControlAttribution {
     font-size: smaller;
     right: 3px;
@@ -160,6 +194,7 @@ div.smLayerDiv {
     position: absolute;
     display: block;
 }
+
 .smControlScale {
     right: 3px;
     bottom: 3em;
@@ -167,6 +202,7 @@ div.smLayerDiv {
     position: absolute;
     font-size: smaller;
 }
+
 .smControlScaleLine {
     display: block;
     position: absolute;
@@ -174,12 +210,14 @@ div.smLayerDiv {
     bottom: 15px;
     font-size: xx-small;
 }
+
 .smControlScaleLineBottom {
     border: solid 2px black;
     border-bottom: none;
-    margin-top:-2px;
+    margin-top: -2px;
     text-align: center;
 }
+
 .smControlScaleLineTop {
     border: solid 2px black;
     border-top: none;
@@ -210,10 +248,9 @@ div.smControlMousePosition {
     background-color: #e5f3ff;
 }
 
-
 .smControlOverviewMapElement {
-    border-left:1px solid #3473b7;
-    border-top:1px solid #3473b7;
+    border-left: 1px solid #3473b7;
+    border-top: 1px solid #3473b7;
     padding-top: 4px;
     padding-left: 4px;
 }
@@ -234,38 +271,42 @@ div.smControlMousePosition {
     overflow: hidden;
     /*background-image:url(../../image/blank.gif);*/
     border: 1px solid red;
-    background:#69F;
-    filter:alpha(opacity=50);/* IE */
-    -moz-opacity:0.5;/* Moz + FF */
+    background: #69F;
+    filter: alpha(opacity=50); /* IE */
+    -moz-opacity: 0.5; /* Moz + FF */
     opacity: 0.5; /* 支持CSS3的浏览器（FF 1.5也支持）*/
 }
+
 .smControlOverviewMapRectReplacement {
     overflow: hidden;
-    cursor: url("../images/cursors/PanDown.cur"),move;
+    cursor: url("../images/cursors/PanDown.cur"), move;
     background-image: url(../images/overview_replacement.gif);
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .smLayerGeoRSSDescription {
-    float:left;
-    width:100%;
-    overflow:auto;
-    font-size:1.0em;
+    float: left;
+    width: 100%;
+    overflow: auto;
+    font-size: 1.0em;
 }
+
 .smLayerGeoRSSClose {
-    float:right;
-    color:gray;
-    font-size:1.2em;
-    margin-right:6px;
-    font-family:sans-serif;
+    float: right;
+    color: gray;
+    font-size: 1.2em;
+    margin-right: 6px;
+    font-family: sans-serif;
 }
+
 .smLayerGeoRSSTitle {
-    float:left;font-size:1.2em;
+    float: left;
+    font-size: 1.2em;
 }
 
 .smPopupContent {
-    padding:7px 10px 7px 20px;
+    padding: 7px 10px 7px 20px;
     overflow: inherit;
 }
 
@@ -277,6 +318,7 @@ div.smControlMousePosition {
     font-size: 1px;
     filter: alpha(opacity=50);
 }
+
 .smHandlerBoxSelectFeature {
     border: 2px solid blue;
     position: absolute;
@@ -309,17 +351,21 @@ div.smControlMousePosition {
 .smDefault {
     cursor: default;
 }
+
 .smCursorWait {
     cursor: wait;
 }
+
 .smDragDown {
-    cursor: url("../images/cursors/PanDown.cur"),move;
+    cursor: url("../images/cursors/PanDown.cur"), move;
 }
+
 .smDragDownCanvas {
     cursor: move;
 }
+
 .smDragUp {
-    cursor: url("../images/cursors/Pan.cur"),auto;
+    cursor: url("../images/cursors/Pan.cur"), auto;
 }
 
 .smCursorPointer {
@@ -329,9 +375,11 @@ div.smControlMousePosition {
 .smDrawBox {
     cursor: crosshair;
 }
+
 .smControlDragFeatureOver {
     /*cursor: move;*/
 }
+
 .smControlDragFeatureActive.smControlDragFeatureOver.smDragDown {
     /* cursor: -moz-grabbing;*/
 }
@@ -363,6 +411,7 @@ div.smControlMousePosition {
     width: 100%;
     height: 100%;
 }
+
 /*白色样式下*/
 .smControlLayerSwitcher .layersDivWhite {
     padding-top: 5px;
@@ -392,11 +441,12 @@ div.smControlMousePosition {
     text-align: left;
     cursor: pointer;
 }
-.smControlLayerSwitcher .maximizeDiv{
+
+.smControlLayerSwitcher .maximizeDiv {
     border: 3px solid #a5c8ec;
 }
 
-.smControlLayerSwitcher .maximizeDivWhite{
+.smControlLayerSwitcher .maximizeDivWhite {
     top: 0px;
     right: 0px;
     cursor: pointer;
@@ -416,6 +466,7 @@ div.smControlLayerSwitcher {
     background-color: transparent;
     border: 3px solid #a5c8ec;
 }
+
 div.smControlLayerSwitcher div.layersDiv {
     padding-top: 25px;
     padding-left: 5px;
@@ -424,6 +475,7 @@ div.smControlLayerSwitcher div.layersDiv {
     width: 166px;
     height: 100%;
 }
+
 div.smControlLayerSwitcher div.layersDivWhite {
     padding-top: 10px;
     padding-left: 5px;
@@ -432,42 +484,43 @@ div.smControlLayerSwitcher div.layersDivWhite {
     width: 166px;
     height: 100%;
     color: #565656;
-    box-shadow:0px 0px 3px #ababab;
-    border:1px solid #d7d7d7;
-    border-radius:4px;
+    box-shadow: 0px 0px 3px #ababab;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
 }
 
-.layerSwitcherHR{
+.layerSwitcherHR {
     width: 95%;
     margin: 7px auto 7px auto;
 }
 
 input.inputElem {
     width: 14px;
-    height:14px;
+    height: 14px;
     margin-left: 3px;
-    margin-right:4px;
+    margin-right: 4px;
     margin-bottom: 4px;
     margin-top: 4px;
     vertical-align: middle;
     border: 0px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0%,0%;
+    background-position: 0%, 0%;
     cursor: pointer;
 }
+
 span.labelSpan {
     margin-left: 5px;
     padding-bottom: 3px;
     padding-top: 3px;
-    height:20px;
+    height: 20px;
     vertical-align: middle;
 }
-div.minimizeDiv .layerSwitcherContent{
+
+div.minimizeDiv .layerSwitcherContent {
     position: absolute;
     padding: 2px 40px;
 }
-
 
 /**
  * Animations
@@ -480,9 +533,10 @@ div.minimizeDiv .layerSwitcherContent{
     transition: opacity 0.2s linear;
 }
 
-#popwin img{
+#popwin img {
     max-width: none;
 }
+
 /**
 *绘制矩形框
 */
@@ -491,42 +545,52 @@ div.minimizeDiv .layerSwitcherContent{
     border: 2px solid #060abe;
     opacity: 0.3;
 }
+
 /**
 * TiledVectorLayerEditor
 */
-.smControlTiledVectorLayerEditor{
+.smControlTiledVectorLayerEditor {
     width: 850px;
     height: 0px;
     cursor: default;
     color: #34495e;
 }
-.smControlTiledVectorLayerEditor form{
+
+.smControlTiledVectorLayerEditor form {
     width: 92%;
     margin: auto;
 }
-.smControlTiledVectorLayerEditor li{
+
+.smControlTiledVectorLayerEditor li {
     margin: 3px 0 3px;
     padding: 2px;
     text-indent: 4px;
 }
-.smControlTiledVectorLayerEditor li[data-layertype="point"]{
+
+.smControlTiledVectorLayerEditor li[data-layertype="point"] {
     list-style-image: url("../images/point.png");
 }
-.smControlTiledVectorLayerEditor li[data-layertype="line"]{
+
+.smControlTiledVectorLayerEditor li[data-layertype="line"] {
     list-style-image: url("../images/line.png");
 }
-.smControlTiledVectorLayerEditor li[data-layertype="region"]{
+
+.smControlTiledVectorLayerEditor li[data-layertype="region"] {
     list-style-image: url("../images/region.png");
 }
-.smControlTiledVectorLayerEditor li[data-layertype="text"]{
+
+.smControlTiledVectorLayerEditor li[data-layertype="text"] {
     list-style-image: url("../images/text.png");
 }
-.smSubPanel-body>ul>li{
+
+.smSubPanel-body > ul > li {
     margin-bottom: 7px;
 }
-.smSubPanel-body ul>li li{
+
+.smSubPanel-body ul > li li {
     list-style: circle;
 }
+
 /*.smShowHideBtn-container{
     content: "";
     height: 32px;
@@ -564,7 +628,7 @@ div.minimizeDiv .layerSwitcherContent{
     cursor: pointer;
     float: left;
 }*/
-span.smCloseBtn-container{
+span.smCloseBtn-container {
     height: 15px;
     width: 15px;
     top: 13px;
@@ -573,23 +637,26 @@ span.smCloseBtn-container{
     z-index: 999;
     position: absolute;
 }
-.smMainPanel{
+
+.smMainPanel {
     width: 100%;
     height: 0;
     box-sizing: border-box;
     font-size: 14px;
     font-family: "Microsoft YaHei";
 }
-.smMainPanel.hide{
+
+.smMainPanel.hide {
     display: none;
 }
-.smPanel-header{
+
+.smPanel-header {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    background-color:#0083cb;
-    height:41px;
-    padding:10px 10px 10px 10px;
-    border-bottom-color: rgb(229,229,229);
+    background-color: #0083cb;
+    height: 41px;
+    padding: 10px 10px 10px 10px;
+    border-bottom-color: rgb(229, 229, 229);
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-top: none;
@@ -598,7 +665,8 @@ span.smCloseBtn-container{
     box-sizing: border-box;
     cursor: move;
 }
-.smMainPanel-title{
+
+.smMainPanel-title {
     margin: 0;
     font-size: 15px;
     color: white;
@@ -607,86 +675,105 @@ span.smCloseBtn-container{
     padding: 0;
     font-weight: normal;
 }
-.smMainPanel-body{
+
+.smMainPanel-body {
     border: 1px solid #ddd;
     box-sizing: border-box;
     background-color: white;
-    color:#7c7c7c;
+    color: #7c7c7c;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
 }
-.smPanelPointer{
-    border: 2px solid rgba(0,0,0,0);
+
+.smPanelPointer {
+    border: 2px solid rgba(0, 0, 0, 0);
 }
-.smPanelPointer:hover{
+
+.smPanelPointer:hover {
     background-color: #f2f2f2;
 }
-.smPanelPointer.select{
+
+.smPanelPointer.select {
     cursor: pointer;
     border: 1px solid #56b781;
 }
-.smLayerInfoPanel{
+
+.smLayerInfoPanel {
     width: 40%;
     display: inline-block;
 }
-.smSubPanel{
+
+.smSubPanel {
     border: 2px solid #ddd;
     margin: 3px 5px 5px 5px;
     overflow-y: auto;
 }
-.smSubPanel ul{
+
+.smSubPanel ul {
     margin: 0px 3px 0 0;
     overflow: hidden;
 }
-.smPanel-title{
+
+.smPanel-title {
     padding-left: 14px;
     padding-top: 14px;
     color: #7c7c7c;
 }
+
 .smSubPanel-header {
     background-color: #fff;
     z-index: 99;
     padding-bottom: 8px;
 }
-.smSubPanel-body{
+
+.smSubPanel-body {
     height: 270px;
     margin-top: 11px;
 }
-.smLayerInfoLI{
+
+.smLayerInfoLI {
     height: inherit;
 }
-.smLayerInfoLI ul{
+
+.smLayerInfoLI ul {
     height: 0px;
     transition: 300ms height;
 }
-.smEditPanel{
+
+.smEditPanel {
     display: none;
     width: 56.6%;
     float: right;
     right: 0px
 }
-.smEditPanel table{
+
+.smEditPanel table {
     color: #7c7c7c;
 }
-.smEditPanel.show{
+
+.smEditPanel.show {
     display: block;
 }
-.smEditPanelControl{
 
-    vertical-align:middle !important;
+.smEditPanelControl {
+
+    vertical-align: middle !important;
 }
-.smPanelCheckbox{
-    float:left;
+
+.smPanelCheckbox {
+    float: left;
     margin-right: 10px;
     width: 32px;
 }
-.smEditPanel .smEditPanelInputContainer{
+
+.smEditPanel .smEditPanelInputContainer {
     height: 24px;
     width: 51px;
     border: 1px solid #888;
     margin: 5px;
 }
-.smEditPanel .smEditPanelInputContainer .smEditPanelInput{
+
+.smEditPanel .smEditPanelInputContainer .smEditPanelInput {
     width: 25px;
     height: 18px !important;
     position: relative;
@@ -694,10 +781,12 @@ span.smCloseBtn-container{
     float: left;
     border: 1px solid;
 }
-.smEditPanel .smEditPanelInputContainer .smEditPanelInput.activebtn:hover{
+
+.smEditPanel .smEditPanelInputContainer .smEditPanelInput.activebtn:hover {
     border: 1px inset #aaa;
 }
-.smEditPanel .smEditPanelInputBtn{
+
+.smEditPanel .smEditPanelInputBtn {
     content: "";
     height: 16px;
     width: 16px;
@@ -708,10 +797,12 @@ span.smCloseBtn-container{
     top: 1px;
     margin: 2px;
 }
-.smEditPanel .smEditPanelInputBtn.activebtn:hover{
+
+.smEditPanel .smEditPanelInputBtn.activebtn:hover {
     background-color: #ebeff2;
 }
-.smEditPanel .smEditPanelInput,.smEditPanel input{
+
+.smEditPanel .smEditPanelInput, .smEditPanel input {
     margin: 5px;
     padding: 0px;
     border-radius: 0px;
@@ -719,46 +810,57 @@ span.smCloseBtn-container{
     -moz-border-radius: 0px;
     text-indent: 1px;
 }
-.smToolSlider.smEditPanelInput{
+
+.smToolSlider.smEditPanelInput {
     top: 4px;
 }
-.smEditPanel input:not([type="checkbox"]){
+
+.smEditPanel input:not([type="checkbox"]) {
     height: 25px;
     border: 1px solid #aaa;
 }
-input.smPanelValueInput[type="text"]{
+
+input.smPanelValueInput[type="text"] {
     width: 40px;
     margin-left: 7px;
     text-align: center;
     border: 1px solid #dddddd;
 }
-.smControlTiledVectorLayerEditor .smAdvanceTable{
+
+.smControlTiledVectorLayerEditor .smAdvanceTable {
     display: none;
 }
-.smControlTiledVectorLayerEditor .smAdvanceTable tr{
+
+.smControlTiledVectorLayerEditor .smAdvanceTable tr {
     overflow: hidden;
     transition: 20ms height;
 }
-.smControlTiledVectorLayerEditor .smSecondTd{
+
+.smControlTiledVectorLayerEditor .smSecondTd {
     text-align: right;
 }
-.smRegularTable .smSecondTd{
+
+.smRegularTable .smSecondTd {
     width: 104px;
 }
-.smAdvanceTable .smSecondTd{
+
+.smAdvanceTable .smSecondTd {
     width: 136px;
 }
-.smControlTiledVectorLayerEditor .smSplitLine{
+
+.smControlTiledVectorLayerEditor .smSplitLine {
     border-top: 1px solid #ececec;
     text-align: right;
     padding-top: 15px;
     margin-top: 15px;
     color: #eee;
 }
-.smSplitLineBottom{
+
+.smSplitLineBottom {
     margin-bottom: 18px;
 }
-.smSplitLine a{
+
+.smSplitLine a {
     color: white;
     text-decoration: blink;
     background-color: #0083cb;
@@ -770,17 +872,19 @@ input.smPanelValueInput[type="text"]{
     text-align: center;
     border-radius: 2px;
 }
-.smSplitLine a:hover{
+
+.smSplitLine a:hover {
     background-color: #0075b7;
 }
-.smControlTiledVectorLayerEditor .smSplitLineTop.hide{
+
+.smControlTiledVectorLayerEditor .smSplitLineTop.hide {
     display: none;
 }
 
 /**
 * SuperMap.Tool.Slider
 */
-.smToolSlider{
+.smToolSlider {
     height: 4px;
     position: relative;
     display: inline-block;
@@ -794,31 +898,34 @@ input.smPanelValueInput[type="text"]{
 
 }
 
-.smToolSlider .smToolSliderBar{
+.smToolSlider .smToolSliderBar {
     content: " ";
     height: 14px;
     width: 14px !important;
     position: absolute;
     top: -6px;
-    color: rgb(124,124,124);
-    background-color: rgb(124,124,124);
+    color: rgb(124, 124, 124);
+    background-color: rgb(124, 124, 124);
     cursor: pointer;
-    border-color: rgb(124,124,124) ;
+    border-color: rgb(124, 124, 124);
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
 
 }
-.smToolSlider .smToolSliderBar.down{
+
+.smToolSlider .smToolSliderBar.down {
     cursor: pointer;
     opacity: 1;
-    background-color:rgb(77,145,189);
+    background-color: rgb(77, 145, 189);
 }
-span.supermapol-icons-clear{
+
+span.supermapol-icons-clear {
     opacity: 0.7;
     cursor: default;
 }
-span.supermapol-icons-clear:hover{
+
+span.supermapol-icons-clear:hover {
     opacity: 1.0;
 }

@@ -16,58 +16,58 @@
 <body>
 <!--登录-->
 <div class="login">
-        <div class="username">
-            <input type="text" placeholder="用户名" id="mobile" autocomplete="on">
-        </div>
-        <div class="password">
-            <input type="password" placeholder="密码" id="password">
-        </div>
-        <img class="btn btn-login" src="images/denglu.png" />
-        <div class="box">
-            <input type="checkbox" id="removePass"><span style="">记住密码</span>
-        </div>
+    <div class="username">
+        <input type="text" placeholder="用户名" id="mobile" autocomplete="on">
     </div>
+    <div class="password">
+        <input type="password" placeholder="密码" id="password">
+    </div>
+    <img class="btn btn-login" src="images/denglu.png"/>
+    <div class="box">
+        <input type="checkbox" id="removePass"><span style="">记住密码</span>
+    </div>
+</div>
 </body>
 <script type='text/javascript'>
     $(function () {
-		if($.cookie('password')!='null'){
-			$('#mobile').val($.cookie('mobile'));
-			$('#password').val($.cookie('password'));
-			var username = $.cookie('mobile');
- 			var password = $.cookie('password');
-			if(username != null && username != '' && password != null && password != ''){
-				//选中保存秘密的复选框
-			  	$("#removePass").attr('checked',true);
-			}
-			
-		}else{
-			 $('#mobile').val($.cookie('mobile'));
-			 $("#removePass").attr('checked',false);
-		}
-		//发送请求
-		 $('.btn-login').click(function () {
-            if ($("#mobile").val() == ""){
-                win.alert('提示','用户名/密码不能为空');
+        if ($.cookie('password') != 'null') {
+            $('#mobile').val($.cookie('mobile'));
+            $('#password').val($.cookie('password'));
+            var username = $.cookie('mobile');
+            var password = $.cookie('password');
+            if (username != null && username != '' && password != null && password != '') {
+                //选中保存秘密的复选框
+                $("#removePass").attr('checked', true);
+            }
+
+        } else {
+            $('#mobile').val($.cookie('mobile'));
+            $("#removePass").attr('checked', false);
+        }
+        //发送请求
+        $('.btn-login').click(function () {
+            if ($("#mobile").val() == "") {
+                win.alert('提示', '用户名/密码不能为空');
                 return
             }
-            if ($("#password").val() == ""){
-                win.alert('提示','用户名/密码不能为空');
+            if ($("#password").val() == "") {
+                win.alert('提示', '用户名/密码不能为空');
                 return
             }
             var loginData = {
                 "password": $('#password').val(),
                 "mobile": $('#mobile').val()
             };
-            if(document.getElementById("removePass").checked){
-            	//expires设置天数为7天
-		       $.cookie('mobile', loginData.mobile, { expires: 7});
-		       $.cookie('password', loginData.password, { expires: 7 });
-		    }else{
-		    	//不记住密码
-		    	// $.cookie('mobile', null); 
-		    	$.cookie('mobile', loginData.mobile, { expires: 7 });
-		    	$.cookie('password', null); 
-		    }
+            if (document.getElementById("removePass").checked) {
+                //expires设置天数为7天
+                $.cookie('mobile', loginData.mobile, {expires: 7});
+                $.cookie('password', loginData.password, {expires: 7});
+            } else {
+                //不记住密码
+                // $.cookie('mobile', null);
+                $.cookie('mobile', loginData.mobile, {expires: 7});
+                $.cookie('password', null);
+            }
             $.ajax({
                 type: 'POST',
                 url: urlName + '/user/login',
@@ -78,11 +78,11 @@
                         saveData('USER_KEY', res.data);
                         window.location.href = "cameraManagement.html";
                     } else {
-                        win.alert('提示','用户名或密码输入错误，请重新输入');
+                        win.alert('提示', '用户名或密码输入错误，请重新输入');
                     }
                 },
                 error: function () {
-                    win.alert('提示','网络错误，请重新输入');
+                    win.alert('提示', '网络错误，请重新输入');
                 }
             })
         });

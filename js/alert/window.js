@@ -30,6 +30,7 @@ var win = new function () {
         jq.appendTo('body').fadeIn();
         $(".win .window-panel").focus();
     };
+
     // 显示消息框
     function messageBox(html, title, message) {
         win.close();
@@ -42,6 +43,7 @@ var win = new function () {
         jq.appendTo('body').show();
         $(".win .w-btn:first").focus();
     }
+
     // 确认框
     this.confirm = function (title, message, selected) {
         this._close = function (r) {

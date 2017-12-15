@@ -44,27 +44,29 @@ $('#searchSelect').on('keyup', function (event) {
         }
     }
 });
+
 //缓冲距离确定确定
 function hcQuery() {
     if (buffer_flag) {
         buffer(buffer_points, buffer_length)
     } else {
-	  	if ($("#search").val() != ""){
-	  		return;
-	  	}
-    	//$('#searchSelect').val('');
-    	buffer_length = 100;
+        if ($("#search").val() != "") {
+            return;
+        }
+        //$('#searchSelect').val('');
+        buffer_length = 100;
         win.alert('提示', '仅工具栏第一栏可以设置缓冲区')
     }
 }
+
 /*-----------------------------------右键结束-----------------------------*/
 $(document).mousedown(function (e) {
     if (3 == e.which) {
-    	//禁止鼠标原生右键菜单
-    	e.cancelBubble = true
+        //禁止鼠标原生右键菜单
+        e.cancelBubble = true
         e.returnValue = false;
-                      
-    	$('#search').val('');
+
+        $('#search').val('');
         closeMenuInfoWin();//关闭左键选中
         //注销
         deleteData('camerasList');
@@ -83,9 +85,10 @@ $(document).mousedown(function (e) {
         vectorControl()
     }
 })
+
 function vectorControl() {
-	//取消矢量选择事件
-	selectFeature.deactivate();
+    //取消矢量选择事件
+    selectFeature.deactivate();
     selectFeatureCar.deactivate();
     buffer_points.splice(0, buffer_points.length);//清空数组
     switch (toolsNum) {
@@ -167,6 +170,7 @@ function vectorControl() {
     }
     clean();
 }
+
 /*-----------------------------------绘制------------------------------------*/
 lineLayer1 = new SuperMap.Layer.Vector("lineLayer1", {
     styleMap: new SuperMap.StyleMap(
@@ -186,6 +190,7 @@ var hzLength = 0;
 drawLine1 = new SuperMap.Control.DrawFeature(lineLayer1, SuperMap.Handler.Path, {multi: true});
 drawLine1.events.on({"featureadded": drawCompleted2});
 /*---------------------------画线-------------------------------*/
+
 //绘制
 function hz() {
     $(document).mousedown(function (e) {
@@ -253,7 +258,7 @@ function hz() {
             var ePoint = map.getLonLatFromPixel(a.xy);
             var xDiff = onepointX - ePoint.lon;
             var yDiff = onepointY - ePoint.lat;
-            var distance = ( Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)+hzLength).toFixed(2);
+            var distance = (Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5) + hzLength).toFixed(2);
             addPopUp("huzhiPopup" + lineDownNum,
                 ePoint.lon + 10,
                 ePoint.lat,
@@ -297,6 +302,7 @@ function hz() {
         return true
     }
 }
+
 function drawCompleted2(eventArgs) {
     lineDownFlag = false;
     $("#huzhiPopup" + (lineDownNum - 2)).remove();
@@ -334,6 +340,7 @@ function drawCompleted2(eventArgs) {
     buffer(buffer_points, buffer_length);
     drawLine1.deactivate();
 }
+
 /*-----------------------------------点选-----------------------------*/
 pointLayer = new SuperMap.Layer.Vector('pointLayer', {
     styleMap: new SuperMap.StyleMap(
@@ -347,11 +354,13 @@ pointLayer = new SuperMap.Layer.Vector('pointLayer', {
         })
     )
 });
+
 function dx() {
     toolsNum = 2;
     // clean();
     vectorControl()
 }
+
 function drawpoint(e) {
     pointLayer.removeAllFeatures();
     buffer_flag = true;
@@ -400,9 +409,9 @@ SuperMap.Handler.Box.prototype.moveBox = function (xy) {
     this.zoomBox.style.width = (deltaX + offset.width + 1) + "px";
     this.zoomBox.style.height = (deltaY + offset.height + 1) + "px";
     this.zoomBox.style.left = (xy.x < startX ?
-            startX - deltaX - offset.left : startX - offset.left) + "px";
+        startX - deltaX - offset.left : startX - offset.left) + "px";
     this.zoomBox.style.top = (xy.y < startY ?
-            startY - deltaY - offset.top : startY - offset.top) + "px";
+        startY - deltaY - offset.top : startY - offset.top) + "px";
     var lonlat = {};
     lonlat.x = this.dragHandler.start.x;
     lonlat.y = this.dragHandler.start.y;
@@ -421,6 +430,7 @@ SuperMap.Handler.Box.prototype.moveBox = function (xy) {
 
 drawBounds = new SuperMap.Control.DrawFeature(drowLayer1, SuperMap.Handler.Box);
 drawBounds.events.on({"featureadded": drawCompleted22, "includeXY": true});
+
 //矩形
 function draw() {
     drowLayer1.style = {
@@ -435,6 +445,7 @@ function draw() {
     clean();
     vectorControl();
 }
+
 function drawCompleted22(drawBoundsArgs) {
     var feature = drawBoundsArgs.feature;
     drowLayer1.addFeatures(feature);
@@ -503,6 +514,7 @@ vectorLayer1 = new SuperMap.Layer.Vector('vectorLayer1', {
         })
     )
 });
+
 //圆形选
 function yxx() {
     drawLayer1.style = {
@@ -517,6 +529,7 @@ function yxx() {
     clean();
     vectorControl()
 }
+
 function beforeDrawCricleCompleted(e) {
     var cPoint = map.getLonLatFromPixel(e.object.handler.evt.xy);
     //圆心
@@ -542,7 +555,7 @@ function beforeDrawCricleCompleted(e) {
         //算出圆的半径
         var xDiff = endX - centerX;
         var yDiff = endY - centerY;
-        var radius = ( Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)).toFixed(2);
+        var radius = (Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)).toFixed(2);
         var circleArea = (Math.PI * radius * radius).toFixed(2);
         addPopUp("circlePopup1",
             ((parseFloat(centerX) + parseFloat(endX)) / 2),
@@ -552,6 +565,7 @@ function beforeDrawCricleCompleted(e) {
             map);
     })
 }
+
 function drawCricleCompleted(eventArgs) {
     $(document).off('mousemove', beforeDrawCricle);
     var args = eventArgs;
@@ -595,6 +609,7 @@ drowLayer = new SuperMap.Layer.Vector("DrowLayer", {
     )
 });
 drawPolygon = new SuperMap.Control.DrawFeature(drowLayer, SuperMap.Handler.Polygon);
+
 //多边形选
 function dbxx() {
     drowLayer.style = {
@@ -652,6 +667,7 @@ function dbxx() {
     }
 //  drawPolygon.deactivate();
 }
+
 function drawPolygonCompleted(eventArgs) {
     //all positions
     var positions = eventArgs.feature.geometry.components[0].components;
@@ -681,6 +697,7 @@ function drawPolygonCompleted(eventArgs) {
     //算出中心
     var centerX = (geometry.right + geometry.left) / 2;
     var centerY = (geometry.top + geometry.bottom) / 2;
+
     //测量结束调用事件
     function measureCompleted(measureEventArgs) {
         var area = measureEventArgs.result.area,
@@ -696,40 +713,48 @@ function drawPolygonCompleted(eventArgs) {
     drawPolygon.events.un({"featureadded": drawPolygonCompleted});
     drawPolygon.deactivate();
 }
+
 /*----------------------------放大-----------------------------*/
+
 //放大
-function fd(){
-    toolsNum=6;
-    var center=map.getCenter();
+function fd() {
+    toolsNum = 6;
+    var center = map.getCenter();
     map.zoomIn();
     map.setCenter(center);
     vectorControl();
     updatePop();
 
 }
+
 /*----------------------------缩小-----------------------------*/
+
 //缩小
-function sx(){
-    toolsNum=7;
-    var center=map.getCenter();
+function sx() {
+    toolsNum = 7;
+    var center = map.getCenter();
     map.zoomOut();
     map.setCenter(center);
     vectorControl();
     updatePop();
 
 }
+
 /*----------------------------全图显示-----------------------------*/
+
 //全图显示
 function gx() {
     toolsNum = 8;
     map.setCenter(new SuperMap.LonLat(500377.96, 305971.1), 0);
     vectorControl();
 }
+
 /*----------------------------标记-----------------------------*/
 //标记
 var fla = false;
 /*---------------------------标记-------------------------------*/
 markers = new SuperMap.Layer.Markers("Markers");
+
 function cli() {
     toolsNum = 9;
     fla = true;
@@ -743,6 +768,7 @@ function cli() {
     map.events.on({'click': markClick})
 
 }
+
 function markClick() {
     if (fla == false) {
         return false;
@@ -765,6 +791,7 @@ function markClick() {
     fla = false;
     map.events.un({'click': markClick})
 }
+
 function mouseClickHandler(event) {
     //closeMarkerInfoWin();
     //构建固定位置浮动弹窗，自适应显示
@@ -860,7 +887,7 @@ function cj() {
             var ePoint = map.getLonLatFromPixel(a.xy);
             var xDiff = onepointX - ePoint.lon;
             var yDiff = onepointY - ePoint.lat;
-            var distance = ( Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)+hzLength).toFixed(2);
+            var distance = (Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5) + hzLength).toFixed(2);
             //console.log(parseFloat(distance))
             addPopUp("huzhiPopup" + lineDownNum,
                 ePoint.lon + 10,
@@ -908,6 +935,7 @@ function cj() {
     }
     clean();
 }
+
 //绘完触发事件
 function drawCompleted1(drawGeometryArgs) {
     //停止画面控制
@@ -937,6 +965,7 @@ function drawCompleted1(drawGeometryArgs) {
         map);
     drawLine.deactivate();
 }
+
 /*----------------------------测多边形面积-----------------------------*/
 function cmj() {
     drowLayer.style = {
@@ -985,6 +1014,7 @@ function cmj() {
         return true
     }
 }
+
 function drawPolygonCompleted1(eventArgs) {
     //all positions
     //获得图层几何对象
@@ -1001,6 +1031,7 @@ function drawPolygonCompleted1(eventArgs) {
     //算出圆心
     var centerX = (geometry.right + geometry.left) / 2;
     var centerY = (geometry.top + geometry.bottom) / 2;
+
     //测量结束调用事件
     function measureCompleted(measureEventArgs) {
         var area = measureEventArgs.result.area,
@@ -1016,7 +1047,9 @@ function drawPolygonCompleted1(eventArgs) {
     drawPolygon.events.un({"featureadded": drawPolygonCompleted1});
     drawPolygon.deactivate();
 }
+
 /*----------------------------清除-----------------------------*/
+
 //清除
 function clean() {
     //注销
@@ -1040,6 +1073,7 @@ function clean() {
     selectFeatureCar.activate();
     //remove();
 }
+
 function cleans() {
     toolsNum = 0;
     //清除maker
@@ -1061,6 +1095,7 @@ function cleans() {
     selectFeature.activate();
     selectFeatureCar.activate();
 }
+
 function cleanLayers() {
     //清除maker
     markers.clearMarkers();
