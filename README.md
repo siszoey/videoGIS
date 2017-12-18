@@ -1,5 +1,7 @@
 # 视频专网GIS平台
 
+[移动采集APP](https://github.com/zhanghao-blog/cameraInfoCollect)
+
 ### 前端技术：
 
 - jquery
