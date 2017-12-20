@@ -14,13 +14,14 @@
 ### js
 
 1. config1 全局定义地图以及后台接口路径以及localstorage缓存时间
-2. mapLayerChange 初始化地图的图层，以及图层切换
-3. mapTools 定义了右侧工具栏点击触发的相应方法
-4. bufferService 生成相应缓存区，调用相应后台查询方法
-5. cameraSelect JQuery ajax 调用多种摄像头选方法接口
-6. cameraOperations 缓存摄像头数据（十分钟），摄像头鼠标事件：悬浮操作，左击弹出菜单（摄像头详情，派发任务，视频播放）
-7. common 摄像头高亮以及菜单相应点击事件
-8. carOperations 车辆相关操作
+2. SuperMap.Include 超图 web SDK javasscript模块引用类库接口
+3. mapLayerChange 初始化地图的图层，以及图层切换
+4. mapTools 定义了右侧工具栏点击触发的相应方法
+5. bufferService 生成相应缓存区，调用相应后台查询方法
+6. cameraSelect JQuery ajax 调用多种摄像头选方法接口
+7. cameraOperations 缓存摄像头数据（十分钟），摄像头鼠标事件：悬浮操作，左击弹出菜单（摄像头详情，派发任务，视频播放）
+8. common 摄像头高亮以及菜单相应点击事件
+9. carOperations 车辆相关操作
 
 ### 页面效果
 
